@@ -4,6 +4,7 @@ import { Card } from "../../components/Card"
 import { Layout } from "../../components/Layout"
 import { NavBar } from "../../components/NavBar"
 import { ProductDetail } from '../../components/ProductDetail'
+import { CheckoutSideMenu } from '../../components/CheckoutSideMenu'
 
 
 export const Home = () => {
@@ -30,6 +31,7 @@ export const Home = () => {
             }
             </div>
             <ProductDetail />
+            <CheckoutSideMenu />
         </Layout>
     )
 }
