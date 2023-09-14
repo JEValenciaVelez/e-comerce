@@ -26,8 +26,9 @@ export const ContextProvider = ({children}) => {
      const [isCheckoutSideMenu, setCheckoutSideMenu] = useState(false);
      const openCheckoutSideMenu = () =>  setCheckoutSideMenu(true);
      const closeCheckoutSideMenu = () => setCheckoutSideMenu(false);
- 
 
+     //estado para guardar la data de cada order del carrito de compras
+     const [order, setOrder] = useState([]);
     
 
     return(
@@ -45,8 +46,11 @@ export const ContextProvider = ({children}) => {
             setCheckoutSideMenu,
             openCheckoutSideMenu,
             closeCheckoutSideMenu,
+            order, 
+            setOrder,
         }}>
              {children}
+
         </contextShoppingCart.Provider>
        
     )
