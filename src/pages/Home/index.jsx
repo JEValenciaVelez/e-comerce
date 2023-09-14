@@ -22,7 +22,7 @@ export const Home = () => {
 
     return (
         <Layout>
-            <NavBar />
+            {/* <NavBar /> */}
             <div className=' grid gap-4 grid-cols-3 w-full max-w-screen-lg '>
             {
                 items?.map((item)=>(

@@ -11,6 +11,7 @@ import { SingIn } from './pages/SingIn';
 
 import './App.css'
 import { NotFound } from './pages/NotFound';
+import { NavBar } from './components/NavBar';
 
 
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
 
+    <NavBar />
     <Routes>
 
       <Route path='/' element= {<Home />} />
