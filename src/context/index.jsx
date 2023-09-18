@@ -1,5 +1,5 @@
 //creamos un contexto global ,  que sera el estado global de la app
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 //instanciamos el modulo crateContext para utilizarlo, en esta variable guardamos el contexto creado
 export const contextShoppingCart = createContext();
@@ -29,6 +29,16 @@ export const ContextProvider = ({children}) => {
 
      //estado para guardar la data de cada order del carrito de compras
      const [order, setOrder] = useState([]);
+
+       //get products
+    const [items, setItems] = useState(null);
+
+    useEffect(()=>{
+        fetch('https://api.escuelajs.co/api/v1/products')
+        .then(response => response.json())
+        .then(data => setItems(data))
+        .catch(error => console.log(error));
+    },[]);
     
 
     return(
@@ -48,6 +58,8 @@ export const ContextProvider = ({children}) => {
             closeCheckoutSideMenu,
             order, 
             setOrder,
+            items,
+            setItems
         }}>
              {children}
 
