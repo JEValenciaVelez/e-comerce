@@ -39,6 +39,9 @@ export const ContextProvider = ({children}) => {
         .then(data => setItems(data))
         .catch(error => console.log(error));
     },[]);
+
+    const [searchByTitle, setSearchByTitle] = useState('')
+    console.log(searchByTitle)
     
 
     return(
@@ -59,7 +62,9 @@ export const ContextProvider = ({children}) => {
             order, 
             setOrder,
             items,
-            setItems
+            setItems,
+            searchByTitle,
+            setSearchByTitle
         }}>
              {children}
 
