@@ -1,4 +1,5 @@
 //creamos un contexto global ,  que sera el estado global de la app
+import { data } from "autoprefixer";
 import { createContext, useState, useEffect } from "react";
 
 //instanciamos el modulo crateContext para utilizarlo, en esta variable guardamos el contexto creado
@@ -23,26 +24,39 @@ export const ContextProvider = ({children}) => {
     const closeProductDetail = () => setIsOpenProductDetail(false);
 
      
-     const [isCheckoutSideMenu, setCheckoutSideMenu] = useState(false);
-     const openCheckoutSideMenu = () =>  setCheckoutSideMenu(true);
-     const closeCheckoutSideMenu = () => setCheckoutSideMenu(false);
+    const [isCheckoutSideMenu, setCheckoutSideMenu] = useState(false);
+    const openCheckoutSideMenu = () =>  setCheckoutSideMenu(true);
+    const closeCheckoutSideMenu = () => setCheckoutSideMenu(false);
 
-     //estado para guardar la data de cada order del carrito de compras
-     const [order, setOrder] = useState([]);
+    //estado para guardar la data de cada order del carrito de compras
+    const [order, setOrder] = useState([]);
 
        //get products
     const [items, setItems] = useState(null);
+    console.log(items)
+    const [filteredItems, setFilteredItems] = useState([])
+    console.log('Items filtrados -> ',filteredItems)
+    const [searchByTitle, setSearchByTitle] = useState('')
+
+    const filterByTitle = (items=[], title) => {
+        return items?.filter(item => item.title.toLowerCase().includes(title.toLowerCase()) )
+    }
 
     useEffect(()=>{
+        if(searchByTitle) setFilteredItems(filterByTitle(items, searchByTitle))
+    },[items,searchByTitle])
+
+    console.log('items filtrados -> ', filteredItems)
+
+    useEffect(()=>{
+        
         fetch('https://api.escuelajs.co/api/v1/products')
         .then(response => response.json())
         .then(data => setItems(data))
         .catch(error => console.log(error));
+        
     },[]);
-
-    const [searchByTitle, setSearchByTitle] = useState('')
-    console.log(searchByTitle)
-    
+   
 
     return(
         <contextShoppingCart.Provider value={{
@@ -64,7 +78,9 @@ export const ContextProvider = ({children}) => {
             items,
             setItems,
             searchByTitle,
-            setSearchByTitle
+            setSearchByTitle,
+            filteredItems,
+            setFilteredItems,
         }}>
              {children}
 

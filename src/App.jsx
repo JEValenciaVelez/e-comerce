@@ -3,7 +3,7 @@
 import {Routes, Route} from 'react-router-dom';
 
 
-import { Home } from './pages/Home/Index';
+import { Home } from './pages/Home';
 import { MyAccount } from './pages/MyAccount/Index';
 import { MyOrder } from './pages/MyOrder';
 import { MyOrders } from './pages/MyOrders';
