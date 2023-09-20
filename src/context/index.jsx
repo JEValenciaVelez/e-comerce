@@ -38,15 +38,21 @@ export const ContextProvider = ({children}) => {
     console.log('Items filtrados -> ',filteredItems)
     const [searchByTitle, setSearchByTitle] = useState('')
 
-    const [searchByCategory, setSearchByCategory] = useState('')
+    const [searchByCategory, setSearchByCategory] = useState(null)
 
     const filterByTitle = (items=[], title) => {
         return items?.filter(item => item.title.toLowerCase().includes(title.toLowerCase()) )
     }
 
+    const filterByCategory = (items=[], category) => {
+        console.log('items : ', items)
+        return items?.filter(item => item.category.name.toLowerCase().includes(category.toLowerCase()) )
+    }
+
     useEffect(()=>{
         if(searchByTitle) setFilteredItems(filterByTitle(items, searchByTitle))
-    },[items,searchByTitle])
+        if(searchByCategory) setFilteredItems(filterByCategory(items, searchByCategory))
+    },[items,searchByTitle,searchByCategory])
 
     console.log('items filtrados -> ', filteredItems)
 

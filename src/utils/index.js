@@ -25,3 +25,6 @@ export const totalPrice = (cartProducts=[]) => {
 
 // console.log(totalPrice([{id: 11, title: 'new title', price: 1000},{id: 11, title: 'new title', price: 1000}]));
 // console.log(totalPrice([]));
+
+const string = 'juan'
+console.log()

@@ -30,14 +30,14 @@ export const NavBar = () => {
                 </li>
                 <li>
                   <NavLink to={`/clothes`} 
-                  onClick={()=>context.setSearchByCategory('clothes')}
+                  onClick={()=>context.setSearchByCategory('Clothes')}
                    className= {({ isActive }) => isActive ? activeStyle : undefined }
                   >
                     Clothes
                   </NavLink>   
                 </li>
                 <li>
-                  <NavLink to={`/electronics`} 
+                  <NavLink to={`/Electronics`} 
                    className={({ isActive}) => isActive ? activeStyle : undefined }
                    onClick={()=>context.setSearchByCategory('electronics')}
                   >
