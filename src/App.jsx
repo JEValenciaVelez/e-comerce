@@ -12,7 +12,9 @@ import { SingIn } from './pages/SingIn';
 import './App.css'
 import { NotFound } from './pages/NotFound';
 import { NavBar } from './components/NavBar';
-import Clothes from './components/Clothes';
+import Clothes from './pages/Clothes';
+import Electronics from './pages/Electronics';
+import Furnitures from './pages/Furnitures';
 
 
 
@@ -31,8 +33,10 @@ function App() {
       <Route path='/my-order' element= {<MyOrder />} />
       <Route path='/my-orders' element= {<MyOrders />} />
       <Route path='/my-orders/last' element= {<MyOrder />} />
-      <Route path='/my-orders/:id' element= {<MyOrder />} />
       <Route path='/clothes' element= {<Clothes />} />
+      <Route path='/electronics' element= {<Electronics />} />
+      <Route path='/furnitures' element= {<Furnitures />} />
+      <Route path='/my-orders/:id' element= {<MyOrder />} />
       <Route path='/sign-in' element= {< SingIn />} />
       <Route path='/*' element= {<NotFound />} />
 
