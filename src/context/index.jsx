@@ -38,6 +38,8 @@ export const ContextProvider = ({children}) => {
     console.log('Items filtrados -> ',filteredItems)
     const [searchByTitle, setSearchByTitle] = useState('')
 
+    const [searchByCategory, setSearchByCategory] = useState('')
+
     const filterByTitle = (items=[], title) => {
         return items?.filter(item => item.title.toLowerCase().includes(title.toLowerCase()) )
     }
@@ -81,6 +83,8 @@ export const ContextProvider = ({children}) => {
             setSearchByTitle,
             filteredItems,
             setFilteredItems,
+            searchByCategory,
+            setSearchByCategory,
         }}>
              {children}
 
