@@ -5,11 +5,11 @@ import { Card } from "../../components/Card"
 import { Layout } from "../../components/Layout"
 import { CheckoutSideMenu } from '../../components/CheckoutSideMenu'
 
-const Furnitures = () => {
+const Toys = () => {
 
     const context = useContext(contextShoppingCart)
     const items = context.items
-    const filterByCLothes = items?.filter(item => item.category.name === 'Furniture')
+    const filterByCLothes = items?.filter(item => item.category.name === 'Toys')
 
     return(
 
@@ -25,9 +25,8 @@ const Furnitures = () => {
 
             <CheckoutSideMenu />
 
-
         </Layout>
     )
 }
 
-export default Furnitures
+export default Toys

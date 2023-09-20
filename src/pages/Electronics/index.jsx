@@ -3,6 +3,7 @@ import {useContext} from 'react'
 import {contextShoppingCart} from '../../context'
 import { Card } from "../../components/Card"
 import { Layout } from "../../components/Layout"
+import { CheckoutSideMenu } from '../../components/CheckoutSideMenu'
 
 const Electronics = () => {
 
@@ -21,6 +22,8 @@ const Electronics = () => {
                     ))
                 }
             </div>
+
+            <CheckoutSideMenu/>
 
 
         </Layout>
